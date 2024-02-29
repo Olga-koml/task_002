@@ -12,7 +12,7 @@ int main() {
             return EXIT_FAILURE;
         }
         int count = 0;
-        for (int i = 1; count <= matrix_size*matrix_size + 1; ++i) {
+        for (int i = 1; count <= matrix_size * matrix_size + 1; ++i) {
             int base_matrix[i];
             find_base_triangle(base_matrix, i);
             for (int j = 0; j < i; ++j) {
@@ -27,4 +27,3 @@ int main() {
     }
     return 0;
 }
-

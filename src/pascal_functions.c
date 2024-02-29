@@ -27,3 +27,15 @@ void output_base_triangle(int *base, int n) {
         if (i < n - 1) printf(" ");
     }
 }
+
+void print_matrix(int *arr, int arr_size) {
+    for (int i = 0; i < arr_size * arr_size; ++i) {
+        printf("%d", arr[i]);
+    if ((i + 1) % arr_size == 0 && (i+1) < arr_size * arr_size) {
+        printf("\n");
+    } 
+    else if (i < arr_size * arr_size - 1) {
+        printf(" ");
+    }
+    }
+}

@@ -5,3 +5,4 @@ copy.c
 __pycache__
 bin/pascal_triangle.exe
 bin/pascal_triangle
+bin/pascal_matrix

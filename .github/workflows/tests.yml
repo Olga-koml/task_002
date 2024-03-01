@@ -41,7 +41,7 @@ jobs:
     - name: Check code style with clang-format
       run: |
         cp clang/.clang-format .
-        if clang-format -n --Werror src/*.c src/*.h; then
+        if clang-format -n --Werror $(find src/ -name '*.c' -o -name '*.h'); then
           echo "clang-format check passed"
         else
           echo "clang-format check failed. Hey, frogger, use clang-format to fix the style issues."
@@ -54,4 +54,4 @@ jobs:
 
     - name: Check code with cppcheck
       run: |
-        cppcheck --enable=all --suppress=missingIncludeSystem src/*.c src/*.h
+        cppcheck --enable=all --suppress=missingIncludeSystem $(find src/ -name '*.c' -o -name '*.h')

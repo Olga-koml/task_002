@@ -25,5 +25,4 @@ int main() {
         fprintf(stderr, "Puck you, Verter!");
         return EXIT_FAILURE;
     }
-    return 0;
-}
+    return 0;}

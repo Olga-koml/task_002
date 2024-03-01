@@ -33,3 +33,25 @@ jobs:
       with:
         name: pytest-results
         path: pytest_report.html
+
+    - name: Set up clang-format
+      run: |
+        sudo apt-get install -y clang-format
+
+    - name: Check code style with clang-format
+      run: |
+        cp clang/.clang-format .
+        if clang-format -n --Werror $(find src/ -name '*.c' -o -name '*.h'); then
+          echo "clang-format check passed"
+        else
+          echo "clang-format check failed. Hey, frogger, use clang-format to fix the style issues."
+          exit 1
+        fi
+
+    - name: Set up cppcheck
+      run: |
+        sudo apt install cppcheck
+
+    - name: Check code with cppcheck
+      run: |
+        cppcheck --enable=all --suppress=missingIncludeSystem $(find src/ -name '*.c' -o -name '*.h')

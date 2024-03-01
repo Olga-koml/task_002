@@ -16,7 +16,8 @@ int main() {
             int base_matrix[i];
             find_base_triangle(base_matrix, i);
             for (int j = 0; j < i; ++j) {
-                matrix[count++] = base_matrix[j];}
+                matrix[count++] = base_matrix[j];
+            }
         }
         print_matrix(matrix, matrix_size);
         free(matrix);

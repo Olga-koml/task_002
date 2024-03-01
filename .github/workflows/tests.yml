@@ -34,14 +34,6 @@ jobs:
         name: pytest-results
         path: pytest_report.html
 
-
-  style-check:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
     - name: Set up clang-format
       run: |
         sudo apt-get install -y clang-format
@@ -55,3 +47,11 @@ jobs:
           echo "clang-format check failed. Hey, frogger, use clang-format to fix the style issues."
           exit 1
         fi
+
+    - name: Set up cppcheck
+      run: |
+        sudo apt install cppcheck
+
+    - name: Check code with cppcheck
+      run: |
+        cppcheck --enable=all --suppress=missingIncludeSystem src/*.c src/*.h
